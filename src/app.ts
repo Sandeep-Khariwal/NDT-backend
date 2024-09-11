@@ -14,7 +14,7 @@ const VERSION = "v1"
 
 app.use(cors());
 app.use(cors({
-  origin: ['https://ndt-frontend-2frenfh0f-sandeep-khariwals-projects.vercel.app','https://ndt-frontend-2frenfh0f-sandeep-khariwals-projects.vercel.app/']
+  origin: ['https://ndt-frontend.vercel.app/','https://ndt-frontend.vercel.app']
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); 
@@ -29,3 +29,5 @@ DataBase()
 app.listen(port, () => {
   return console.log(`Express is listening at http://localhost:${port}`);
 });
+
+// "start": "node dist/app.js",
