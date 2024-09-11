@@ -13,6 +13,9 @@ const port = 8080;
 const VERSION = "v1"
 
 app.use(cors());
+app.use(cors({
+  origin: ['https://ndt-frontend-2frenfh0f-sandeep-khariwals-projects.vercel.app','https://ndt-frontend-2frenfh0f-sandeep-khariwals-projects.vercel.app/']
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); 
 
