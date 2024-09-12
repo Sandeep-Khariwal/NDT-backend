@@ -1,5 +1,4 @@
-import { bcrypt } from 'bcrypt';
-
+import bcrypt from "bcryptjs"
 import { randomUUID } from "crypto";
 import User from "../models/auth.model";
 import { generateAccessToken } from "../middleware/jwtToken";

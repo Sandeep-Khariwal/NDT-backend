@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const bcrypt_1 = require("bcrypt");
+const bcryptjs_1 = __importDefault(require("bcryptjs"));
 const crypto_1 = require("crypto");
 const auth_model_1 = __importDefault(require("../models/auth.model"));
 const jwtToken_1 = require("../middleware/jwtToken");
@@ -28,7 +28,7 @@ class AuthService {
                     return { status: 500, message: "User already exists" };
                 }
                 const saltRounds = 10;
-                const hashedPassword = yield bcrypt_1.bcrypt.hash(password, saltRounds);
+                const hashedPassword = yield bcryptjs_1.default.hash(password, saltRounds);
                 const user = new auth_model_1.default();
                 user._id = `DPRT-${(0, crypto_1.randomUUID)()}`;
                 user.email = email;
@@ -54,7 +54,7 @@ class AuthService {
                         message: "Invalid credentials. Please try again.",
                     };
                 }
-                const isMatch = yield bcrypt_1.bcrypt.compare(password, user.password);
+                const isMatch = yield bcryptjs_1.default.compare(password, user.password);
                 if (!isMatch) {
                     return { status: 500, message: "Invalid email or password" };
                 }
