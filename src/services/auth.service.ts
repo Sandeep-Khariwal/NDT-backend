@@ -1,10 +1,8 @@
-import jwt from "jsonwebtoken";
-import bcrypt from "bcrypt";
+import { bcrypt } from 'bcrypt';
 
 import { randomUUID } from "crypto";
 import User from "../models/auth.model";
 import { generateAccessToken } from "../middleware/jwtToken";
-import path from "path";
 
 export default class AuthService {
   public async SignUp(name: string, email: string, password: string) {
