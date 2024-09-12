@@ -21,10 +21,11 @@ export default class PartService {
       const part = new Part();
       const now = new Date();
       const datePart = now.toISOString().split("T")[0];
-      const timePart =  now.toLocaleTimeString('en-US', {
+      const timePart = now.toLocaleTimeString('en-US', {
         hour: 'numeric',
         minute: 'numeric',
-        hour12: true
+        hour12: true,
+        timeZone: 'Asia/Kolkata' // Set this to your correct timezone
       });
       part._id = `PRT-${randomUUID()}`;
       part.name = data.partName;
@@ -59,7 +60,8 @@ export default class PartService {
           const timePart = now.toLocaleTimeString('en-US', {
             hour: 'numeric',
             minute: 'numeric',
-            hour12: true
+            hour12: true,
+            timeZone: 'Asia/Kolkata' 
           });
           updateFields.incomingDate = incomingDate1!!  + " " + timePart;
           updateFields.releaseDate = "-"
@@ -67,10 +69,11 @@ export default class PartService {
         case Status.RELEASE:
           updatedStatus = Status.RELEASE;
           const datePart = now.toISOString().split("T")[0];
-          const timePart1 =  now.toLocaleTimeString('en-US', {
+          const timePart1 = now.toLocaleTimeString('en-US', {
             hour: 'numeric',
             minute: 'numeric',
-            hour12: true
+            hour12: true,
+            timeZone: 'Asia/Kolkata' 
           });
 
           updateFields.releaseDate = datePart  + " " + timePart1;
@@ -81,7 +84,8 @@ export default class PartService {
           const timePart2: string =  now.toLocaleTimeString('en-US', {
             hour: 'numeric',
             minute: 'numeric',
-            hour12: true
+            hour12: true,
+            timeZone: 'Asia/Kolkata' 
           });
           updateFields.partDate = datePart1 + " " + timePart2;
           updatedStatus = Status.HOLD;

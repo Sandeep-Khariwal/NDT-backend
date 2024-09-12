@@ -81,8 +81,6 @@ export default class AuthService {
           path: "departmentParts",
         },
       ]);
-  console.log("parts are : ", parts);
-  
       return { parts: parts, status: 200 };
     } catch (error) {
       return error;
@@ -90,8 +88,6 @@ export default class AuthService {
   }
 
   public async getSubDepartmentsById(id: string) {
-    console.log("id is : ", id);
-
     try {
       const subDepartments = await User.findById(id).populate([
         {

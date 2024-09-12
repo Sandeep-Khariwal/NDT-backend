@@ -93,7 +93,6 @@ class AuthService {
                         path: "departmentParts",
                     },
                 ]);
-                console.log("parts are : ", parts);
                 return { parts: parts, status: 200 };
             }
             catch (error) {
@@ -103,7 +102,6 @@ class AuthService {
     }
     getSubDepartmentsById(id) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log("id is : ", id);
             try {
                 const subDepartments = yield auth_model_1.default.findById(id).populate([
                     {

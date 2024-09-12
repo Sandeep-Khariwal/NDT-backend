@@ -32,7 +32,8 @@ class PartService {
                 const timePart = now.toLocaleTimeString('en-US', {
                     hour: 'numeric',
                     minute: 'numeric',
-                    hour12: true
+                    hour12: true,
+                    timeZone: 'Asia/Kolkata' // Set this to your correct timezone
                 });
                 part._id = `PRT-${(0, crypto_1.randomUUID)()}`;
                 part.name = data.partName;
@@ -64,7 +65,8 @@ class PartService {
                         const timePart = now.toLocaleTimeString('en-US', {
                             hour: 'numeric',
                             minute: 'numeric',
-                            hour12: true
+                            hour12: true,
+                            timeZone: 'Asia/Kolkata'
                         });
                         updateFields.incomingDate = incomingDate1 + " " + timePart;
                         updateFields.releaseDate = "-";
@@ -75,7 +77,8 @@ class PartService {
                         const timePart1 = now.toLocaleTimeString('en-US', {
                             hour: 'numeric',
                             minute: 'numeric',
-                            hour12: true
+                            hour12: true,
+                            timeZone: 'Asia/Kolkata'
                         });
                         updateFields.releaseDate = datePart + " " + timePart1;
                         break;
@@ -85,7 +88,8 @@ class PartService {
                         const timePart2 = now.toLocaleTimeString('en-US', {
                             hour: 'numeric',
                             minute: 'numeric',
-                            hour12: true
+                            hour12: true,
+                            timeZone: 'Asia/Kolkata'
                         });
                         updateFields.partDate = datePart1 + " " + timePart2;
                         updatedStatus = status_enum_1.Status.HOLD;
